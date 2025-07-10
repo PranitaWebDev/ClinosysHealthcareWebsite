@@ -202,6 +202,17 @@ h6 {
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
+.customer-box {
+  border: 2px solid teal;
+  box-shadow: rgba(138, 141, 144, 0.4) 0px 0px 0px 2px, rgba(0, 87, 81, 0.9) 0px 4px 6px -1px, rgba(55, 32, 32, 0.08) 0px 1px 0px inset;
+}
+
+.customer-img {
+  /* height: 20vh;
+  width: 20vh; */
+  object-fit: fill;
+}
+
 @media (max-width: 1200px) {
   .header .logo {
     order: 1;
