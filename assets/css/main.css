@@ -79,6 +79,10 @@ body {
   font-family: var(--default-font);
 }
 
+img {
+  object-fit: fill !important;
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;
