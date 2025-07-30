@@ -822,7 +822,7 @@ section,
 
 .hero .hero-content .hero-stats {
   display: flex;
-  gap: 2.5rem;
+  gap: 1rem;
 }
 
 @media (max-width: 576px) {
@@ -833,7 +833,7 @@ section,
 }
 
 .hero .hero-content .hero-stats .stat-item h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
