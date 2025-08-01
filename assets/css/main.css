@@ -168,7 +168,7 @@ h6 {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: #f7f7f7 0px 5px 15px;
 }
 
 .header .logo {
@@ -177,7 +177,6 @@ h6 {
 
 .header .logo img {
   height: 80px;
-  box-shadow: rgba(208, 194, 194, 0.35) 0px 5px 15px;
   /* border: 1px solid white; */
   padding: 4px;
 }
@@ -1212,6 +1211,103 @@ section,
 .services {
   padding: 80px 0;
 }
+
+.service-card {
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* *************************** */
+
+/* Main Card Styling */
+.service-card {
+  background-color: var(--surface-color);
+  border-radius: 10px;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  /* This hides anything that goes outside the rounded corners */
+  margin-bottom: 30px;
+}
+
+/* Image Container Styling */
+.service-card .card-image {
+  height: 250px;
+  /* Tumchya avadinuar unchi aani rudi set kara */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Specific image for this card */
+.service-card .product-img1 {
+  background-image: url("../img/product/CHIS.jpeg");
+}
+
+.service-card .product-img2 {
+  background-image: url("../img/product/PMS.jpeg");
+}
+
+.service-card .product-img3 {
+  background-image: url("../img/product/Billing\ &\ Financial\ Management.jpeg");
+}
+
+.service-card .product-img4 {
+  background-image: url("../img/product/Electronic\ Medical\ Records\ \(EMR\).jpeg");
+}
+
+.service-card .product-img5 {
+  background-image: url("../img/product/Pharmacy\ &\ Inventory\ Management.jpeg");
+}
+
+.service-card .product-img6 {
+  background-image: url("../img/product/Laboratory\ &\ Radiology\ Management.jpeg");
+}
+
+.service-card .product-img7 {
+  background-image: url("../img/product/Operation\ Theater\ Management.jpeg");
+}
+
+.service-card .product-img8 {
+  background-image: url("../img/product/Doctor\ &\ Staff\ Management.jpeg");
+}
+
+.service-card .product-img9 {
+  background-image: url("../img/product/Mobile\ Apps\ for\ Patients\ &\ Doctors.jpeg");
+}
+
+
+/* Content Container Styling */
+.service-card .card-content {
+  padding: 30px;
+  /* Content chya chahubajula jaga सोडण्यासाठी */
+}
+
+/* Optional: To make the icon look better over the new layout */
+.service-card .icon-box {
+  margin-top: -50px;
+  /* This pulls the icon up, half on the image and half on the content area */
+  margin-bottom: 20px;
+  background: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+/* ************************** */
 
 .services .service-card {
   background-color: var(--surface-color);
