@@ -57,7 +57,7 @@
       </nav>
 
 
-      <a class="btn-getstarted" href="contact.html">Request Demo</a>
+      <a class="btn-getstarted" href="contact-us.html">Request Demo</a>
 
     </div>
   </header>
@@ -69,23 +69,24 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
           <div class="col-lg-6">
+            <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
+
+              <img src="assets/img/about/poster4.jpg" alt=".." class="img-fluid rounded shadow">
+            </div>
+          </div>
+          <div class="col-lg-6">
             <div class="hero-content" data-aos="fade-up" data-aos-delay="150">
               <h2>Our Customers </h2>
               <p>
-                We have successfully partnered with over 150 clients, ranging from 10-bed clinics to large 750-bed
-                Hospitals, including government medical colleges. Our 85% customer satisfaction index reflects our
+                We have successfully partnered with over 100 clients, ranging from 10-bed clinics to large 750-bed
+                Hospitals, including government medical colleges. Our 98% customer satisfaction index reflects our
                 commitment to our clients.
               </p>
 
 
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
 
-              <img src="assets/img/about/poster4.jpg" alt=".." class="img-fluid rounded shadow">
-            </div>
-          </div>
         </div>
       </div>
     </section><!-- /Hero Section -->
@@ -486,7 +487,108 @@
               <div class="cta-form">
                 <h3>Schedule a Demo</h3>
                 <p>Fill out the form below and our team will contact you within 24 hours.</p>
-                <form action="forms/consultation.php" method="post" class="php-email-form">
+
+                <form id="contactDemoForm" novalidate>
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="name">Your Name</label>
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name ..."
+                        required>
+                      <small id="nameError" class="text-danger"></small>
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                      <label for="email">Your Email</label>
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email ..."
+                        required>
+                      <small id="emailError" class="text-danger"></small>
+                    </div>
+                  </div>
+
+                  <div class="form-group mt-3">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" name="subject" id="subject"
+                      placeholder="Enter Subject here..." required>
+                    <small id="subjectError" class="text-danger"></small>
+                  </div>
+
+                  <div class="form-group mt-3">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" name="message" id="message" rows="5"
+                      placeholder="Enter message here..." required></textarea>
+                    <small id="messageError" class="text-danger"></small>
+                  </div>
+
+                  <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary" onclick="sendToWhatsApp()">Get Started</button>
+                  </div>
+
+                  <div id="successMessage" class="text-success text-center mt-3 fw-bold" style="display: none;">
+                    ✅ Message ready! WhatsApp opened in new tab.
+                  </div>
+                </form>
+
+                <script>
+                  function validateEmail(email) {
+                    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return pattern.test(email);
+                  }
+
+                  function sendToWhatsApp() {
+                    // Hide success & clear errors
+                    document.getElementById("successMessage").style.display = "none";
+                    document.getElementById("nameError").textContent = "";
+                    document.getElementById("emailError").textContent = "";
+                    document.getElementById("subjectError").textContent = "";
+                    document.getElementById("messageError").textContent = "";
+
+                    // Get values
+                    const name = document.getElementById("name").value.trim();
+                    const email = document.getElementById("email").value.trim();
+                    const subject = document.getElementById("subject").value.trim();
+                    const message = document.getElementById("message").value.trim();
+
+                    let isValid = true;
+
+                    // Validation checks
+                    if (name.length < 2) {
+                      document.getElementById("nameError").textContent = "Name must be at least 2 characters.";
+                      isValid = false;
+                    }
+                    if (!validateEmail(email)) {
+                      document.getElementById("emailError").textContent = "Enter a valid email.";
+                      isValid = false;
+                    }
+                    if (subject.length < 3) {
+                      document.getElementById("subjectError").textContent = "Subject must be at least 3 characters.";
+                      isValid = false;
+                    }
+                    if (message.length < 5) {
+                      document.getElementById("messageError").textContent = "Message must be at least 5 characters.";
+                      isValid = false;
+                    }
+
+                    if (!isValid) return;
+
+                    // WhatsApp Message
+                    const phoneNumber = "918999181472"; // Change to your number
+                    const text = `Hello, I am ${name} (%0AEmail: ${email})%0A%0A*Subject:* ${subject}%0A*Message:* ${message}`;
+                    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+
+                    // Open WhatsApp
+                    window.open(url, '_blank');
+
+                    // Show success, reset form
+                    document.getElementById("successMessage").style.display = "block";
+                    document.getElementById("contactDemoForm").reset();
+                    // ✅ Refresh page after 10 seconds
+                    // setTimeout(() => {
+                    //   location.reload();
+                    // }, 10000);
+                  }
+                </script>
+
+
+                <!-- <form action="forms/consultation.php" method="post" class="php-email-form">
                   <div class="form-group">
                     <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
                   </div>
@@ -511,7 +613,7 @@
                   <div class="text-center">
                     <button type="submit">Get Started</button>
                   </div>
-                </form>
+                </form> -->
               </div>
             </div>
           </div>
@@ -591,22 +693,22 @@
             <div class="features-image">
               <div class="stats-card">
                 <div class="stat-item">
-                  <h3><span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+                  <h3><span data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="1"
                       class="purecounter"></span>%</h3>
                   <p>Client Satisfaction</p>
                 </div>
                 <div class="stat-item">
-                  <h3><span data-purecounter-start="0" data-purecounter-end="250" data-purecounter-duration="1"
-                      class="purecounter"></span>+</h3>
+                  <h3><span data-purecounter-start="0" data-purecounter-end="70" data-purecounter-duration="1"
+                      class="purecounter"></span>k +</h3>
                   <p>OPD Patients</p>
                 </div>
                 <div class="stat-item">
-                  <h3><span data-purecounter-start="0" data-purecounter-end="90" data-purecounter-duration="1"
-                      class="purecounter"></span>+</h3>
+                  <h3><span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+                      class="purecounter"></span>%</h3>
                   <p>Discharge Summary</p>
                 </div>
                 <div class="stat-item">
-                  <h3><span data-purecounter-start="0" data-purecounter-end="70" data-purecounter-duration="1"
+                  <h3><span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
                       class="purecounter"></span>+</h3>
                   <p>Happy Customers</p>
                 </div>
@@ -803,17 +905,17 @@
                         Chh. Sambhaji Nagar, Maharashtra</p>
                       <br>
                       <p>Anusha’s Pearl,Road No.1, Shilpa Hills,
-                        Kondapur, Hyderabad-501532. Indi</p>
+                        Kondapur, Hyderabad-501532. India</p>
                     </div>
                   </div>
                 </div>
 
-                <div class="social-links">
+                <!-- <div class="social-links">
                   <a href="#"><i class="bi bi-twitter"></i></a>
                   <a href="#"><i class="bi bi-facebook"></i></a>
                   <a href="#"><i class="bi bi-instagram"></i></a>
                   <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -859,60 +961,99 @@
                 </div>
               </form> -->
 
-              <form id="contactForm">
+
+
+
+
+              <form id="contactForm" novalidate>
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <label for="name">Your Name</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name ..." required>
+                    <small id="nameError" class="text-danger"></small>
                   </div>
                   <div class="col-md-6 form-group mt-3 mt-md-0">
                     <label for="email">Your Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Your Email ..."
                       required>
+                    <small id="emailError" class="text-danger"></small>
                   </div>
                 </div>
                 <div class="form-group mt-3">
                   <label for="subject">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Your Subject here..."
-                    required>
+                  <input type="text" class="form-control" name="subject" id="subject"
+                    placeholder="Enter Subject here..." required>
+                  <small id="subjectError" class="text-danger"></small>
                 </div>
                 <div class="form-group mt-3">
                   <label for="message">Message</label>
-                  <textarea class="form-control" name="message" id="message" rows="7" placeholder="Your message here..."
-                    required></textarea>
+                  <textarea class="form-control" name="message" id="message" rows="7"
+                    placeholder="Enter message here..." required></textarea>
+                  <small id="messageError" class="text-danger"></small>
                 </div>
 
                 <div class="text-center mt-4">
-                  <!-- <button type="submit" class="btn btn-primary">Send Message</button> -->
-                  <button type="button" class="btn btn-primary onclick=" sendToWhatsApp()">Send Message</button>
+                  <button type="button" class="btn btn-primary" onclick="sendToWhatsApp()">Send Message</button>
                 </div>
               </form>
 
               <script>
+                function validateEmail(email) {
+                  // Corrected and relaxed regex to allow valid emails
+                  const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+                  return pattern.test(email);
+                }
+
                 function sendToWhatsApp() {
-                  // Get form values
+                  // Clear previous errors
+                  document.getElementById("nameError").textContent = "";
+                  document.getElementById("emailError").textContent = "";
+                  document.getElementById("subjectError").textContent = "";
+                  document.getElementById("messageError").textContent = "";
+
+                  // Get field values
                   const name = document.getElementById("name").value.trim();
                   const email = document.getElementById("email").value.trim();
                   const subject = document.getElementById("subject").value.trim();
                   const message = document.getElementById("message").value.trim();
 
-                  // Basic validation
-                  if (!name || !email || !subject || !message) {
-                    alert("Please fill all fields before sending to WhatsApp.");
-                    return;
+                  let isValid = true;
+
+                  // Validation checks
+                  if (name.length < 2) {
+                    document.getElementById("nameError").textContent = "Name must be at least 2 characters.";
+                    isValid = false;
                   }
 
-                  // WhatsApp number (WITHOUT + sign)
-                  const phoneNumber = "918999181472"; // 👈 replace with your number
+                  if (!validateEmail(email)) {
+                    document.getElementById("emailError").textContent = "Please enter a valid email address.";
+                    isValid = false;
+                  }
 
-                  // Build message
+                  if (subject.length < 3) {
+                    document.getElementById("subjectError").textContent = "Subject must be at least 3 characters.";
+                    isValid = false;
+                  }
+
+                  if (message.length < 5) {
+                    document.getElementById("messageError").textContent = "Message must be at least 5 characters.";
+                    isValid = false;
+                  }
+
+                  if (!isValid) return;
+
+                  // WhatsApp integration
+                  const phoneNumber = "918999181472";
                   const text = `Hello, I am ${name} (%0AEmail: ${email})%0A%0A*Subject:* ${subject}%0A*Message:* ${message}`;
-
-                  // Redirect to WhatsApp
                   const url = `https://wa.me/${phoneNumber}?text=${text}`;
                   window.open(url, '_blank');
                 }
+                // ✅ Refresh page after 10 seconds
+                // setTimeout(() => {
+                //   location.reload();
+                // }, 10000);
               </script>
+
 
             </div>
           </div>
